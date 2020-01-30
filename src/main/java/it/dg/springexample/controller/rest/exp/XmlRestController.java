@@ -50,4 +50,17 @@ public class XmlRestController extends AbstractPublicRestController {
 		return xmlBeanOne.completeMessage().concat("</br> ").concat(xmlBeanTwo.completeMessage());
 	}
 
+	@GetMapping("/lazyBean")
+	public void lazyBean() {
+		ApplicationContext context = new ClassPathXmlApplicationContext("classpath*:application-context.xml");
+		// context.getBean("lazyBean", LazyBean.class);
+		// context.getBean("nonLazyBean", NonLazyBean.class);
+	}
+
+	@GetMapping("/requestScopedBean")
+	public void requestScopedBean() {
+		ApplicationContext context = new ClassPathXmlApplicationContext("classpath*:application-context.xml");
+		// context.getBean("lazyBean", LazyBean.class);
+		// context.getBean("nonLazyBean", NonLazyBean.class);
+	}
 }

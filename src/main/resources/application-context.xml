@@ -30,4 +30,15 @@
 
 	<bean id="nonStaticFBTwo" factory-bean="nonStaticFactoryBean"
 		factory-method="secondFactoryMethod" />
+
+	<!-- LAZY BEAN -->
+	<bean id="lazyBean"
+		class="it.dg.springexample.beans.lazy.LazyBean" lazy-init="true" />
+
+	<bean id="nonLazyBean"
+		class="it.dg.springexample.beans.lazy.NonLazyBean" />
+
+	<!-- REQUEST BEAN -->
+	<bean id="httpRequestBean"
+		class="it.dg.springexample.beans.request.RequestSopedBean" />
 </beans> 
