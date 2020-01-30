@@ -47,9 +47,7 @@ public class XmlRestController extends AbstractPublicRestController {
 		ApplicationContext context = new ClassPathXmlApplicationContext("classpath*:application-context.xml");
 		NonStaticFactoryBean xmlBeanOne = context.getBean("nonStaticFBOne", NonStaticFactoryBean.class);
 		NonStaticFactoryBean xmlBeanTwo = context.getBean("nonStaticFBTwo", NonStaticFactoryBean.class);
-		NonStaticFactoryBean xmlBeanThree = context.getBean("nonStaticFBThree", NonStaticFactoryBean.class);
-		return xmlBeanOne.completeMessage().concat("</br> ").concat(xmlBeanTwo.completeMessage()).concat("</br> ")
-				.concat(xmlBeanThree.completeMessage());
+		return xmlBeanOne.completeMessage().concat("</br> ").concat(xmlBeanTwo.completeMessage());
 	}
 
 }

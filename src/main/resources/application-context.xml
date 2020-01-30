@@ -30,7 +30,4 @@
 
 	<bean id="nonStaticFBTwo" factory-bean="nonStaticFactoryBean"
 		factory-method="secondFactoryMethod" />
-
-	<bean id="nonStaticFBThree" factory-bean="nonStaticFactoryBean"
-		factory-method="threeFactoryMethod" />
 </beans> 
