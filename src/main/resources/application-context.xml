@@ -20,4 +20,17 @@
 	<bean id="staticFactoryBean"
 		class="it.dg.springexample.beans.staticfactory.StaticFactoryBean"
 		factory-method="getInstance" />
+
+	<!-- NON STATIC FACTORY BEAN -->
+	<bean id="nonStaticFactoryBean"
+		class="it.dg.springexample.beans.nonstaticfactory.NonStaticFactoryBean" />
+
+	<bean id="nonStaticFBOne" factory-bean="nonStaticFactoryBean"
+		factory-method="firstFactoryMethod" />
+
+	<bean id="nonStaticFBTwo" factory-bean="nonStaticFactoryBean"
+		factory-method="secondFactoryMethod" />
+
+	<bean id="nonStaticFBThree" factory-bean="nonStaticFactoryBean"
+		factory-method="threeFactoryMethod" />
 </beans> 
