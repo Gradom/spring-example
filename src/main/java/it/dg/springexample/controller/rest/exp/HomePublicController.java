@@ -10,4 +10,5 @@ public class HomePublicController extends AbstractPublicRestController {
 	public String welcomeService() {
 		return "Welcome!!!";
 	}
+
 }

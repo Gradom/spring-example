@@ -1,4 +1,4 @@
-package it.dg.springexample.beans;
+package it.dg.springexample.beans.standard;
 
 public class XmlLoginBean {
 

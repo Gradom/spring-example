@@ -11,7 +11,13 @@
         http://www.springframework.org/schema/mvc  
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-	<bean id="loginBean"
-		class="it.dg.springexample.beans.XmlLoginBean" />
 
+	<!-- DEFAULT BEAN -->
+	<bean id="loginBean"
+		class="it.dg.springexample.beans.standard.XmlLoginBean" />
+
+	<!-- STATIC FACTORY BEAN -->
+	<bean id="staticFactoryBean"
+		class="it.dg.springexample.beans.staticfactory.StaticFactoryBean"
+		factory-method="getInstance" />
 </beans> 
