@@ -12,7 +12,7 @@
         http://www.springframework.org/schema/mvc  
         http://www.springframework.org/schema/mvc/spring-mvc.xsd
         http://www.springframework.org/schema/aop
-https://www.springframework.org/schema/aop/spring-aop.xsd">
+		https://www.springframework.org/schema/aop/spring-aop.xsd">
 
 
 	<!-- DEFAULT BEAN -->
@@ -44,12 +44,30 @@ https://www.springframework.org/schema/aop/spring-aop.xsd">
 	<!-- REQUEST BEAN -->
 	<bean id="httpRequestBean"
 		class="it.dg.springexample.beans.request.RequestSopedBean"
+		scope="request" />
+
+	<!-- LIFE CYCLE BEAN -->
+	<bean id="lifeCycleBean"
+		class="it.dg.springexample.beans.lifecycle.LifeCycleBean"
+		init-method="postConstruct" destroy-method="preDestroy" />
+
+	<bean id="annoLifeCycleBean"
+		class="it.dg.springexample.beans.lifecycle.AnnotationLifeCycleBean" />
+
+	<!-- SESSION BEAN -->
+	<bean id="sessionBean"
+		class="it.dg.springexample.beans.session.SessionScopedBean"
+		scope="session" />
+
+	<!-- COLLABORATORS BEAN -->
+	<bean id="httpRequestCBean"
+		class="it.dg.springexample.beans.request.RequestSopedBean"
 		scope="request">
 		<aop:scoped-proxy />
 	</bean>
 
-	<!-- LIFE CYCLE BEAN -->
-<!-- 	<bean id="lifeCycleBean"
-		class="it.dg.springexample.beans.lifecycle.LifeCycleBean"
-		init-method="postConstruct" destroy-method="preDestroy" /> -->
+	<bean id="collaboratorB"
+		class="it.dg.springexample.beans.collaborators.RequestBeanInSingletonBean">
+		<property name="httpRequestCBean" ref="httpRequestCBean" />
+	</bean>
 </beans> 
