@@ -17,5 +17,7 @@
 
 	<!--Provide support for conversion, formatting and validation -->
 	<mvc:annotation-driven />
+	
+	<import resource="classpath*:application-context.xml"/>
 
 </beans> 

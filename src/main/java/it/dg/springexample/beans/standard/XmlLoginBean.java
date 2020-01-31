@@ -5,6 +5,7 @@ public class XmlLoginBean {
 	private String message = "Default welcome message";
 
 	public XmlLoginBean() {
+		System.out.println(" XmlLoginBean -------> Bean created");
 	}
 
 	public XmlLoginBean(String message) {
@@ -18,6 +19,5 @@ public class XmlLoginBean {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	
-	
+
 }
