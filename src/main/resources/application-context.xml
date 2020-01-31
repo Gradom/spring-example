@@ -40,5 +40,7 @@
 
 	<!-- REQUEST BEAN -->
 	<bean id="httpRequestBean"
-		class="it.dg.springexample.beans.request.RequestSopedBean" />
+		class="it.dg.springexample.beans.request.RequestSopedBean">
+		<property name="lazy" ref="lazyBean" />
+	</bean>
 </beans> 
