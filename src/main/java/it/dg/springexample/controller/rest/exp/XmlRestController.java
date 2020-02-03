@@ -11,6 +11,7 @@ import it.dg.springexample.beans.nonstaticfactory.NonStaticFactoryBean;
 import it.dg.springexample.beans.request.RequestSopedBean;
 import it.dg.springexample.beans.session.SessionScopedBean;
 import it.dg.springexample.beans.standard.XmlLoginBean;
+import it.dg.springexample.beans.startstop.StartStopBean;
 import it.dg.springexample.beans.staticfactory.StaticFactoryBean;
 
 @RestController
@@ -95,5 +96,11 @@ public class XmlRestController extends AbstractPublicRestController {
 		b.setState("State is = " + Math.random());
 		System.out.println(b);
 		return "Bean state = " + b.getState();
+	}
+
+	@GetMapping("/startStopBean")
+	public void startStopBean() {
+		context.getBean("startStopBean", StartStopBean.class);
+
 	}
 }

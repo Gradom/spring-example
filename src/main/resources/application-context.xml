@@ -65,9 +65,14 @@
 		scope="request">
 		<aop:scoped-proxy />
 	</bean>
+	
 
 	<bean id="collaboratorB"
 		class="it.dg.springexample.beans.collaborators.RequestBeanInSingletonBean">
 		<property name="httpRequestCBean" ref="httpRequestCBean" />
 	</bean>
+	
+	<!-- START STOP BEAN -->
+	<bean id="startStopBean"
+		class="it.dg.springexample.beans.startstop.StartStopBean" />
 </beans> 
