@@ -1,7 +1,13 @@
-package it.dg.springexample.domain.dto;
+package it.dg.springexample.data.domain.dto;
 
 import java.io.Serializable;
 
+/**
+ * @author Grasso Domenico
+ *
+ *         Time: 14:42:10 Date: 24 apr 2020
+ * 
+ */
 public class UserDto implements Serializable {
 
 	private static final long serialVersionUID = -1091302494400255469L;
