@@ -3,13 +3,16 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="  
         http://www.springframework.org/schema/beans  
         http://www.springframework.org/schema/beans/spring-beans.xsd  
         http://www.springframework.org/schema/context  
         http://www.springframework.org/schema/context/spring-context.xsd  
         http://www.springframework.org/schema/mvc  
-        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/aop
+		https://www.springframework.org/schema/aop/spring-aop.xsd">
 
 
 	<!-- DEFAULT BEAN -->
@@ -40,7 +43,36 @@
 
 	<!-- REQUEST BEAN -->
 	<bean id="httpRequestBean"
-		class="it.dg.springexample.beans.request.RequestSopedBean">
-		<property name="lazy" ref="lazyBean" />
+		class="it.dg.springexample.beans.request.RequestSopedBean"
+		scope="request" />
+
+	<!-- LIFE CYCLE BEAN -->
+	<bean id="lifeCycleBean"
+		class="it.dg.springexample.beans.lifecycle.LifeCycleBean"
+		init-method="postConstruct" destroy-method="preDestroy" />
+
+	<bean id="annoLifeCycleBean"
+		class="it.dg.springexample.beans.lifecycle.AnnotationLifeCycleBean" />
+
+	<!-- SESSION BEAN -->
+	<bean id="sessionBean"
+		class="it.dg.springexample.beans.session.SessionScopedBean"
+		scope="session" />
+
+	<!-- COLLABORATORS BEAN -->
+	<bean id="httpRequestCBean"
+		class="it.dg.springexample.beans.request.RequestSopedBean"
+		scope="request">
+		<aop:scoped-proxy />
 	</bean>
+	
+
+	<bean id="collaboratorB"
+		class="it.dg.springexample.beans.collaborators.RequestBeanInSingletonBean">
+		<property name="httpRequestCBean" ref="httpRequestCBean" />
+	</bean>
+	
+	<!-- START STOP BEAN -->
+	<bean id="startStopBean"
+		class="it.dg.springexample.beans.startstop.StartStopBean" />
 </beans> 

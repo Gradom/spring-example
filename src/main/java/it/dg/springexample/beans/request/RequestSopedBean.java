@@ -1,21 +1,19 @@
 package it.dg.springexample.beans.request;
 
-import it.dg.springexample.beans.lazy.LazyBean;
-
 public class RequestSopedBean {
-	
-	private LazyBean lazy;
+
+	private String state = "empty";
 
 	public RequestSopedBean() {
 		System.out.println(" RequestSopedBean ----------> request http scoped bean created");
 	}
 
-	public LazyBean getLazy() {
-		return lazy;
+	public String getState() {
+		return state;
 	}
 
-	public void setLazy(LazyBean lazy) {
-		this.lazy = lazy;
+	public void setState(String state) {
+		this.state = state;
 	}
 
 }

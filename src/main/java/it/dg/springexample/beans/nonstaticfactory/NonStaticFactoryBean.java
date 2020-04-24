@@ -7,6 +7,7 @@ public class NonStaticFactoryBean {
 	private String secondMessage = "Message not initialized";
 
 	public NonStaticFactoryBean() {
+		System.out.println(" NonStaticFactoryBean ------->Bean created");
 	}
 
 	public NonStaticFactoryBean firstFactoryMethod() {

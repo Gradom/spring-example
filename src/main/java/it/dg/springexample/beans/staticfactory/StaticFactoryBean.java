@@ -11,7 +11,7 @@ public class StaticFactoryBean {
 	}
 
 	public static StaticFactoryBean getInstance() {
-		System.out.println(" StaticFactoryBean ------> invoked creating instance ");
+		System.out.println(" StaticFactoryBean ------> invoked getInstance ");
 		message = "message constructed";
 		return instance;
 	}
