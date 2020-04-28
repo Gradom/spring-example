@@ -20,11 +20,15 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private UserAuthenticationManager authManager;
 
+	@Autowired
+	private BasicAuthenticationEntryPointConfig authEntryPoint;
+
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests().antMatchers("/private/admin/**").hasRole("ADMIN").antMatchers("/private/user/**")
-				.hasRole("USER").and().httpBasic().and().logout().logoutUrl("/logout").permitAll().logoutSuccessUrl("/")
-				.clearAuthentication(true).invalidateHttpSession(true).deleteCookies("JSESSIONID");
+				.hasRole("USER").and().httpBasic().authenticationEntryPoint(authEntryPoint).and().logout()
+				.logoutUrl("/logout").permitAll().logoutSuccessUrl("/public/").clearAuthentication(true)
+				.invalidateHttpSession(true).deleteCookies("JSESSIONID");
 
 		http.csrf().disable();
 	}

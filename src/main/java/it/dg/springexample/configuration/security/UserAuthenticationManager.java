@@ -38,6 +38,7 @@ public class UserAuthenticationManager implements AuthenticationProvider {
 
 		UserEntity user = userRepository.findByUsernameAndPssword(username, password);
 		if (user == null) {
+			System.out.println("Launch exception for bad credentials");
 			throw new BadCredentialsException("Bad credentials...");
 		}
 
