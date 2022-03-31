@@ -9,7 +9,7 @@
 
 
 	<properties>
-		<springVersion>5.2.4.RELEASE</springVersion>
+		<springVersion>5.3.18</springVersion>
 		<springSecurityVersion>5.3.0.RELEASE</springSecurityVersion>
 		<mariaJdbcVersion>2.6.0</mariaJdbcVersion>
 		<jpaVersion>2.2.6.RELEASE</jpaVersion>
